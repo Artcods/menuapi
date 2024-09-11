@@ -21,6 +21,7 @@ db.mongoose.connect(db.url, {
 })
 
 
+
 // Route untuk mengembalikan data
 
 app.get('/', (req, res) => {
@@ -30,6 +31,9 @@ app.get('/', (req, res) => {
         timestamp: new Date()
     })
 })
+
+/* dari routes folder panggil kesini */
+require('./app/routes/product.route')(app)
 
 app.listen(PORT, () => {
     console.log(`Are you sure you want to listen http://localhost:${PORT}`)
