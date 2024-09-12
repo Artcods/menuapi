@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors');
 const path = require('path')
 
 // Definisikan Port
@@ -13,6 +14,8 @@ app.use(express.urlencoded( { extended: true } )) // menerima data dari inputan 
 // Mendefinisikan path yang menjadi root directory
 
 app.use('/img', express.static(path.join(__dirname, './public/img')))
+
+app.use(cors({ origin: 'http://localhost:8080' }));
 
 /* memanggil model dari index.js */
 const db = require('./app/models')
@@ -48,3 +51,4 @@ app.listen(PORT, () => {
 })
 
 /* 1. Membuat folder config untuk menyimpan configurasi untuk dapat terhubung ke monggodb */
+
