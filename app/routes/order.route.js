@@ -10,6 +10,8 @@ module.exports = (app) => {
 
     /* Membuat post untuk menambahkan items */
     router.post('/user/:id/add', orders.addToCart)
+    
+    router.delete('/user/:id/product/:product', orders.removeFromCart)
 
     /* registrasikan router */
     app.use('/api/order', router)

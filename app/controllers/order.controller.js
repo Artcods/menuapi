@@ -69,3 +69,29 @@ exports.addToCart = (req, res) => {
 }/* Lalu buatkan routernya */
 
 
+/* Membuat penghapusan data */
+exports.removeFromCart = (req, res) => {
+    const id = Number(req.params.id)
+    /* mengirimkan data json didalam body req kita sehingga jika ingin mendapatkan nilai kita menggunakan perintah req.body */
+    const productCode = String(req.params.product)
+
+    Order.updateOne({
+        user_id: id
+    },
+    {
+        /* melakukan query untuk menambahkan data didalam array (tidak boleh nilai sama) */
+        $pull: {
+            /* untuk menghidari jika didalam field sudah ada code product yang sudah dikirimkan tidak boleh sama */
+            cart_items: productCode
+        }
+    }).then((result) => [
+        res.send(result)
+    ]).catch((err) => {
+        res.status(409).send({
+            message: err.message || 'Error updating cart.'
+        })
+    })
+}/* Lalu buatkan routernya */
+
+
+
