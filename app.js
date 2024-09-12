@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 
 /* dari routes folder panggil kesini */
 require('./app/routes/product.route')(app)
+require('./app/routes/order.route')(app)
 
 app.listen(PORT, () => {
     console.log(`Are you sure you want to listen http://localhost:${PORT}`)
