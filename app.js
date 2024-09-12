@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 
 // Definisikan Port
 const PORT = process.env.PORT || 8000
@@ -8,6 +9,10 @@ const PORT = process.env.PORT || 8000
 // Middleware to parse JSON request bodies
 app.use(express.json()) // setiap ada req dari client akan diubah menjadi json
 app.use(express.urlencoded( { extended: true } )) // menerima data dari inputan form
+
+// Mendefinisikan path yang menjadi root directory
+
+app.use('/img', express.static(path.join(__dirname, './public/img')))
 
 /* memanggil model dari index.js */
 const db = require('./app/models')
