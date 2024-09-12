@@ -1,7 +1,13 @@
+/* Hal yang wajib dilakukan yaitu membuat object terlebih dahulu sebelum membuat function di controllers */
+/* 1. Config DB */
+/* 2. Buat Object yaitu (db) => untuk memanggil seluruh file models kemudian di exports untuk bisa digunakan oleh controllers */
+
+
 const dbConfig = require('../../config/db.config')
 
 const mongoose = require('mongoose')
 
+/* mongoose dan menetapkan standar ES6 */
 mongoose.Promise = global.Promise
 
 /* object db untuk memanggil seluruh file */

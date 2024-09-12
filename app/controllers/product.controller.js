@@ -3,6 +3,7 @@ const db = require('../models')
 /* membuat object product dan mengambil dari file model */
 const Product = db.products
 
+/* ini untuk menampilkan halaman seluruh product */
 /* Membuat fungsi mencari data */
 exports.findAll = (req, res) => {
   // Mencari semua data product di database
@@ -17,8 +18,6 @@ exports.findAll = (req, res) => {
           err.message || 'Error retrieving products.'
       })
     })
-}
-
-/* Lalu fungsi ini buatkan routes dan diregistrasikan */
+}/* Lalu fungsi ini buatkan routes dan diregistrasikan */
 
 

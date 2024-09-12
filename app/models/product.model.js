@@ -1,3 +1,5 @@
+/* Membuat data yang sesuai kita inginkan (ROM) => relasi object manajement  */
+
 module.exports = mongoose => {
     const schema = mongoose.Schema({
         code: String,

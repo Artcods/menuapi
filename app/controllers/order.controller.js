@@ -4,6 +4,7 @@ const db = require('../models');
 /* object order */
 const Order = db.orders
 
+/* untuk menampilkan seluruh cart yang ditambahkan */
 /* data order memiliki dari user */
 exports.findOrder = (req, res) => {
     const id = Number(req.params.id) // membuat menjadi number untuk samakan dari model

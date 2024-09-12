@@ -1,4 +1,4 @@
-/* proses join  */
+/* Membuat data yang sesuai kita inginkan (ROM) => relasi object manajement  */
 module.exports = mongoose => {
     const schema = mongoose.Schema({
         user_id: Number,
