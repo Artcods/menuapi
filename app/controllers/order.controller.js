@@ -15,8 +15,7 @@ exports.findOrder = (req, res) => {
             user_id: id // match(where(user_id))
         } 
     }, 
-        { 
-        /* Mengubah tipe data cart_items menjadi Number */
+    /* { 
         $addFields: { 
             cart_items: { 
                 $map: { 
@@ -26,7 +25,7 @@ exports.findOrder = (req, res) => {
                 }
             }
         }
-    },
+    }, */
     {
         /* Aggregasi yang mencari semua barang yang dibeli oleh user */
         $lookup: {
@@ -42,9 +41,31 @@ exports.findOrder = (req, res) => {
             message: err.message || 'Error retrieving orders.'
         })
     })
-}
+}/* Lalu buatkan routernya */
 
-/* Lalu buatkan routernya */
+/* Untuk menambahkan item ke cart */
+/* kita mencari order berdasarkan user id dan ditambahkan data kedalam ke cart ke addToSet  */
+exports.addToCart = (req, res) => {
+    const id = Number(req.params.id)
+    /* mengirimkan data json didalam body req kita sehingga jika ingin mendapatkan nilai kita menggunakan perintah req.body */
+    const productCode = String(req.body.product)
 
+    Order.updateOne({
+        user_id: id
+    },
+    {
+        /* melakukan query untuk menambahkan data didalam array (tidak boleh nilai sama) */
+        $addToSet: {
+            /* untuk menghidari jika didalam field sudah ada code product yang sudah dikirimkan tidak boleh sama */
+            cart_items: productCode
+        }
+    }).then((result) => [
+        res.send(result)
+    ]).catch((err) => {
+        res.status(409).send({
+            message: err.message || 'Error updating cart.'
+        })
+    })
+}/* Lalu buatkan routernya */
 
 

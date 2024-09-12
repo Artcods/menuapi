@@ -14,10 +14,13 @@ module.exports = mongoose => {
     object.id = _id;
     return object;
     });
+    
 
     /* membuat model untuk monggodb */
     const Product = mongoose.model("products", schema);
     return Product;
+
+    
 }
 
 

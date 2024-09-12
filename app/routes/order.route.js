@@ -6,7 +6,10 @@ module.exports = (app) => {
     const router = require('express').Router()
 
     /* mengarahkan object product dari controllers lalu panggil app,js*/
-    router.get('/user/:id', orders.findOrder)
+    router.get('/user/:id', orders.findOrder) // harus diuji postman
+
+    /* Membuat post untuk menambahkan items */
+    router.post('/user/:id/add', orders.addToCart)
 
     /* registrasikan router */
     app.use('/api/order', router)

@@ -13,6 +13,8 @@ app.use(express.urlencoded( { extended: true } )) // menerima data dari inputan 
 const db = require('./app/models')
 
 db.mongoose.connect(db.url, {
+
+    // Opsi lain bisa ditambahkan di sini
 }).then((result) => {
     console.log('Connected to the database!')
 }).catch((error) => {
