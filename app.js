@@ -21,7 +21,7 @@ app.use(cors({ origin: 'http://localhost:8080' }));
 const db = require('./app/models')
 
 db.mongoose.connect(db.url, {
-
+    
     // Opsi lain bisa ditambahkan di sini
 }).then((result) => {
     console.log('Connected to the database!')
