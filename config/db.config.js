@@ -4,5 +4,5 @@
 } */
 
 module.exports = {
-    url: 'mongodb://mongo-vue:27017/app_collect'
+    url: 'mongodb://localhost:27017/app_collect'
 }

@@ -15,7 +15,7 @@ app.use(express.urlencoded( { extended: true } )) // menerima data dari inputan 
 
 app.use('/img', express.static(path.join(__dirname, './public/img')))
 
-app.use(cors({ origin: 'http://localhost:8080' }));
+app.use(cors());
 
 /* memanggil model dari index.js */
 const db = require('./app/models')
